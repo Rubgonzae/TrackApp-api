@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Devices
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let item of devices">
+      <ion-item>
+        <ion-icon [color]="item.state ? 'secondary': 'medium'" name="bug" slot="start"></ion-icon>
+        <ion-label>{{ item.name }}</ion-label>
+        <div class="item-note" slot="end">
+          {{ item.serial }}
+        </div>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="editDevice(item)">Edit</ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="removeDevice(item)">Remove</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/add-device']" color="action">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Add Device</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form (ngSubmit)="showDataForm()">
+        <ion-item>
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input name="name" [(ngModel)]="form.name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Serial</ion-label>
+            <ion-input name="serial" [(ngModel)]="form.serial"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-textarea name="description" [(ngModel)]="form.description">
+            </ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label>Category</ion-label>
+            <ion-select [ngModelOptions]="{ standalone: true }" [(ngModel)]="form.category" interface="popover">
+                <ion-select-option value="1">Romagnola</ion-select-option>
+                <ion-select-option value="2">Nelore</ion-select-option>
+                <ion-select-option value="3">Maine</ion-select-option>
+                <ion-select-option value="4">Holstein</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-toggle [ngModelOptions]="{ standalone: true }" [(ngModel)]="form.status"></ion-toggle>
+        </ion-item>
+
+        <ion-button type="submit" expand="full" color="action">Add Device</ion-button>
+    </form>
+
+</ion-content>
